@@ -1,0 +1,16 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: ordersxv3-app
+  namespace: devhub
+  labels:
+    argocd.argoproj.io/secret-type: repository
+spec:
+  destinations:
+    - name: local
+      namespace: devhub
+      server: 'https://kubernetes.default.svc'
+  sourceRepos:
+    - url: https://github.com/devhub-mad/ordersxv3-app-gitops
+  
